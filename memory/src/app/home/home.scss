@@ -1,0 +1,40 @@
+.home {
+    background-color: #2f3131;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    h2 {
+        font-size: 48px;
+    }
+
+    h1 {
+        font-size: 140px;
+    }
+
+    button {
+        display: flex;
+    }
+}
+
+.controller {
+    width: 400px;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+h1, h2 {
+    color: white;
+    margin: 0;
+}
