@@ -122,7 +122,6 @@
     gap: 8px;
     border: none;
     background-color: #F0EA6E;
-    cursor: pointer;    
     transition: all 0.2s ease;
     transform-origin: left;
 
@@ -134,8 +133,9 @@
         transition: all 0.2s ease;
     }
 
-    &:hover {
-        transform: scale(1.1);
+    &:not(:disabled):hover {
+        transform: scale(1.1);        
+        cursor: pointer;    
         img {
             transform: rotate(-4deg) scale(1.1);
         }
@@ -158,4 +158,38 @@
     height: 56px;
     background-color: #F0EA6E;
     transform: rotate(25deg);
+}
+
+.flash {
+  animation: blink 0.3s ease 2;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.start-animate {
+  animation: hopRight 0.3s ease-in-out 2;
+}
+
+@keyframes hopRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

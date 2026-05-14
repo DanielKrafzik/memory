@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-settings',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './settings.html',
   styleUrl: './settings.scss',
 })
@@ -16,20 +17,31 @@ export class Settings {
   playerInfo: string = 'Player';
   boardInfo: string = 'Board size';
 
+  isStartDisabled = true;
+
+  checkStartButton() {
+    this.isStartDisabled =
+      !this.choosenPlayer ||
+      !this.gameTheme ||
+      !this.boardSize;
+  }
+
   setGameTheme(theme: string): void {
     this.gameTheme = theme;
     this.previewUrl = `/img/settings/${theme}.png`;
     this.themeInfo = `${theme.replace(/_/g, ' ').charAt(0).toUpperCase() + theme.replace(/_/g, ' ').slice(1)}`;
+    this.checkStartButton();
   }
 
   setChoosenPlayer(player: string): void {
     this.choosenPlayer = player;
     this.playerInfo = player;
-    
+    this.checkStartButton();
   }
 
   setBoardSize(size: number): void {
     this.boardSize = size;
     this.boardInfo = `${size} cards`;
+    this.checkStartButton();
   }
 }

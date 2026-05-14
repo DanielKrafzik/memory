@@ -16,23 +16,23 @@
                 </div>
                 <div class="theme-options">
                     <div class="theme-option" (click)="setGameTheme('code_theme')">
-                        <img src="/img/settings/circle_choosen.png" alt="">
-                        <p>
+                        <img [src]="gameTheme === 'code_theme' ? '/img/settings/circle_choosen.png' : '/img/settings/circle.png'" alt="">
+                        <p [style.font-weight]="gameTheme === 'code_theme' ? 'bold' : 'normal'">
                             Code vibes theme
                         </p>
                         <div class="selection-decoration">
-                            <div class="yellow-line-selection"></div>
-                            <div class="yellow-square-selection"></div>
+                            <div class="yellow-line-selection" [style.display]="gameTheme === 'code_theme' ? 'block' : 'none'"></div>
+                            <div class="yellow-square-selection" [style.display]="gameTheme === 'code_theme' ? 'block' : 'none'"></div>
                         </div>
                     </div>
                     <div class="theme-option" (click)="setGameTheme('game_theme')">
-                        <img src="/img/settings/circle.png" alt="">
-                        <p>
+                        <img [src]="gameTheme === 'game_theme' ? '/img/settings/circle_choosen.png' : '/img/settings/circle.png'" alt="">
+                        <p [style.font-weight]="gameTheme === 'game_theme' ? 'bold' : 'normal'">
                             Gaming theme
                         </p>
                         <div class="selection-decoration">
-                            <div class="yellow-line-selection"></div>
-                            <div class="yellow-square-selection"></div>
+                            <div class="yellow-line-selection" [style.display]="gameTheme === 'game_theme' ? 'block' : 'none'"></div>
+                            <div class="yellow-square-selection" [style.display]="gameTheme === 'game_theme' ? 'block' : 'none'"></div>
                         </div>
                     </div>
                 </div>
@@ -45,23 +45,23 @@
                 </div>
                 <div class="player-options">
                     <div class="player-option" (click)="setChoosenPlayer('Blue')">
-                        <img src="/img/settings/circle.png" alt="">
-                        <p>
+                        <img [src]="choosenPlayer === 'Blue' ? '/img/settings/circle_choosen.png' : '/img/settings/circle.png'" alt="">
+                        <p [style.font-weight]="choosenPlayer === 'Blue' ? 'bold' : 'normal'">
                             Blue
                         </p>
                         <div class="selection-decoration">
-                            <div class="yellow-line-selection"></div>
-                            <div class="yellow-square-selection"></div>
+                            <div class="yellow-line-selection" [style.display]="choosenPlayer === 'Blue' ? 'block' : 'none'"></div>
+                            <div class="yellow-square-selection" [style.display]="choosenPlayer === 'Blue' ? 'block' : 'none'"></div>
                         </div>
                     </div>
                     <div class="player-option" (click)="setChoosenPlayer('Orange')">
-                        <img src="/img/settings/circle.png" alt="">
-                        <p>
+                        <img [src]="choosenPlayer === 'Orange' ? '/img/settings/circle_choosen.png' : '/img/settings/circle.png'" alt="">
+                        <p [style.font-weight]="choosenPlayer === 'Orange' ? 'bold' : 'normal'">
                             Orange
                         </p>
                         <div class="selection-decoration">
-                            <div class="yellow-line-selection"></div>
-                            <div class="yellow-square-selection"></div>
+                            <div class="yellow-line-selection" [style.display]="choosenPlayer === 'Orange' ? 'block' : 'none'"></div>
+                            <div class="yellow-square-selection" [style.display]="choosenPlayer === 'Orange' ? 'block' : 'none'"></div>
                         </div>
                     </div>
                 </div>
@@ -74,33 +74,39 @@
                 </div>
                 <div class="board-options">
                     <div class="board-option" (click)="setBoardSize(16)">
-                        <img src="/img/settings/circle.png" alt="">
-                        <p>
+                        <img [src]="boardSize === 16
+                                ? '/img/settings/circle_choosen.png'
+                                : '/img/settings/circle.png'" alt="">
+                        <p [style.font-weight]="boardSize === 16 ? 'bold' : 'normal'">
                             16 cards
                         </p>
                         <div class="selection-decoration">
-                            <div class="yellow-line-selection"></div>
-                            <div class="yellow-square-selection"></div>
+                            <div class="yellow-line-selection" [style.display]="boardSize === 16 ? 'block' : 'none'"></div>
+                            <div class="yellow-square-selection" [style.display]="boardSize === 16 ? 'block' : 'none'"></div>
                         </div>
                     </div>
                     <div class="board-option" (click)="setBoardSize(24)">
-                        <img src="/img/settings/circle.png" alt="">
-                        <p>
+                        <img [src]="boardSize === 24
+                                ? '/img/settings/circle_choosen.png'
+                                : '/img/settings/circle.png'" alt="">
+                        <p [style.font-weight]="boardSize === 24 ? 'bold' : 'normal'">
                             24 cards
                         </p>
                         <div class="selection-decoration">
-                            <div class="yellow-line-selection"></div>
-                            <div class="yellow-square-selection"></div>
+                            <div class="yellow-line-selection" [style.display]="boardSize === 24 ? 'block' : 'none'"></div>
+                            <div class="yellow-square-selection" [style.display]="boardSize === 24 ? 'block' : 'none'"></div>
                         </div>
                     </div>
                     <div class="board-option" (click)="setBoardSize(32)">
-                        <img src="/img/settings/circle.png" alt="">
-                        <p>
+                        <img [src]="boardSize === 32
+                                ? '/img/settings/circle_choosen.png'
+                                : '/img/settings/circle.png'" alt="">
+                        <p [style.font-weight]="boardSize === 32 ? 'bold' : 'normal'">
                             32 cards
                         </p>
                         <div class="selection-decoration">
-                            <div class="yellow-line-selection"></div>
-                            <div class="yellow-square-selection"></div>
+                            <div class="yellow-line-selection" [style.display]="boardSize === 32 ? 'block' : 'none'"></div>
+                            <div class="yellow-square-selection" [style.display]="boardSize === 32 ? 'block' : 'none'"></div>
                         </div>
                     </div>
                 </div>
@@ -113,16 +119,16 @@
             <div class="setting-selections">
                 <p>{{ themeInfo }}</p>
                 <div class="info-decoration">
-                    <div class="yellow-square2"></div>
-                    <div class="yellow-line2"></div>
+                    <div class="yellow-square2" [class.flash]="!isStartDisabled" [style.display]="isStartDisabled ? 'none' : 'block'"></div>
+                    <div class="yellow-line2" [class.flash]="!isStartDisabled" [style.width]="isStartDisabled ? '8px' : '4px'"></div>
                 </div>
                 <p>{{ playerInfo }}</p>
                 <div class="info-decoration">
-                    <div class="yellow-square2"></div>
-                    <div class="yellow-line2"></div>
+                    <div class="yellow-square2" [class.flash]="!isStartDisabled" [style.display]="isStartDisabled ? 'none' : 'block'"></div>
+                    <div class="yellow-line2" [class.flash]="!isStartDisabled" [style.width]="isStartDisabled ? '8px' : '4px'"></div>
                 </div>
                 <p>{{ boardInfo }}</p>
-                <button class="start-btn">
+                <button class="start-btn" [class.start-animate]="!isStartDisabled" [disabled]="isStartDisabled" [routerLink]="['/gamescreen']">
                     <img src="/img/settings/start_img.png" alt="">
                     <p [style.font-weight]="'bold'">Start</p>
                 </button>
