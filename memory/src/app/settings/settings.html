@@ -15,7 +15,7 @@
                     <h2>Game themes</h2>
                 </div>
                 <div class="theme-options">
-                    <div class="theme-option">
+                    <div class="theme-option" (click)="setGameTheme('code_theme')">
                         <img src="/img/settings/circle_choosen.png" alt="">
                         <p>
                             Code vibes theme
@@ -25,7 +25,7 @@
                             <div class="yellow-square-selection"></div>
                         </div>
                     </div>
-                    <div class="theme-option">
+                    <div class="theme-option" (click)="setGameTheme('game_theme')">
                         <img src="/img/settings/circle.png" alt="">
                         <p>
                             Gaming theme
@@ -44,7 +44,7 @@
                     <h2>Choose player</h2>
                 </div>
                 <div class="player-options">
-                    <div class="player-option">
+                    <div class="player-option" (click)="setChoosenPlayer('Blue')">
                         <img src="/img/settings/circle.png" alt="">
                         <p>
                             Blue
@@ -54,7 +54,7 @@
                             <div class="yellow-square-selection"></div>
                         </div>
                     </div>
-                    <div class="player-option">
+                    <div class="player-option" (click)="setChoosenPlayer('Orange')">
                         <img src="/img/settings/circle.png" alt="">
                         <p>
                             Orange
@@ -73,7 +73,7 @@
                     <h2>Boards size</h2>
                 </div>
                 <div class="board-options">
-                    <div class="board-option">
+                    <div class="board-option" (click)="setBoardSize(16)">
                         <img src="/img/settings/circle.png" alt="">
                         <p>
                             16 cards
@@ -83,7 +83,7 @@
                             <div class="yellow-square-selection"></div>
                         </div>
                     </div>
-                    <div class="board-option">
+                    <div class="board-option" (click)="setBoardSize(24)">
                         <img src="/img/settings/circle.png" alt="">
                         <p>
                             24 cards
@@ -93,7 +93,7 @@
                             <div class="yellow-square-selection"></div>
                         </div>
                     </div>
-                    <div class="board-option">
+                    <div class="board-option" (click)="setBoardSize(32)">
                         <img src="/img/settings/circle.png" alt="">
                         <p>
                             32 cards
@@ -109,19 +109,19 @@
         </div>
 
         <div class="setting-visual">
-            <img src="/img/settings/code_theme.png" alt="">
+            <img src="{{ previewUrl }}" alt="">
             <div class="setting-selections">
-                <p>Game theme</p>
+                <p>{{ themeInfo }}</p>
                 <div class="info-decoration">
                     <div class="yellow-square2"></div>
                     <div class="yellow-line2"></div>
                 </div>
-                <p>Player</p>
+                <p>{{ playerInfo }}</p>
                 <div class="info-decoration">
                     <div class="yellow-square2"></div>
                     <div class="yellow-line2"></div>
                 </div>
-                <p>Board size</p>
+                <p>{{ boardInfo }}</p>
                 <button class="start-btn">
                     <img src="/img/settings/start_img.png" alt="">
                     <p [style.font-weight]="'bold'">Start</p>
