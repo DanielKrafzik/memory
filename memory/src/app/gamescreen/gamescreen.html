@@ -16,5 +16,9 @@
         </button>
     </div>
 
-    <div></div>
+    <div class="card" *ngFor="let card of cards">
+
+        <img [src]="'/img/gamescreen/' + card.image" alt="">
+
+    </div>
 </div>

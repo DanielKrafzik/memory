@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { RouterLink, Router } from "@angular/router";
+import { GameService } from "../services/game";
+
+
 
 @Component({
   selector: 'app-settings',
@@ -8,6 +11,12 @@ import { RouterLink } from "@angular/router";
   styleUrl: './settings.scss',
 })
 export class Settings {
+
+  constructor(
+    private gameService: GameService,
+    private router: Router
+  ) {}
+  
   gameTheme: string = 'code_theme';
   choosenPlayer: string | null = null;
   boardSize: number | null = null;
@@ -43,5 +52,19 @@ export class Settings {
     this.boardSize = size;
     this.boardInfo = `${size} cards`;
     this.checkStartButton();
+  }
+
+   startGame(): void {
+
+    if (this.isStartDisabled) return;
+
+    this.gameService.gameTheme = this.gameTheme;
+    this.gameService.choosenPlayer = this.choosenPlayer;
+    this.gameService.boardSize = this.boardSize;
+
+    console.log(this.gameService.gameTheme, this.gameService.choosenPlayer, this.gameService.boardSize);
+    
+
+    this.router.navigate(['/gamescreen']);
   }
 }

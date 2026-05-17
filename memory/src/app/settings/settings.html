@@ -128,7 +128,7 @@
                     <div class="yellow-line2" [class.flash]="!isStartDisabled" [style.width]="isStartDisabled ? '8px' : '4px'"></div>
                 </div>
                 <p>{{ boardInfo }}</p>
-                <button class="start-btn" [class.start-animate]="!isStartDisabled" [disabled]="isStartDisabled" [routerLink]="['/gamescreen']">
+                <button class="start-btn" [class.start-animate]="!isStartDisabled" [disabled]="isStartDisabled" [routerLink]="['/gamescreen']" (click)="startGame()">
                     <img src="/img/settings/start_img.png" alt="">
                     <p [style.font-weight]="'bold'">Start</p>
                 </button>
