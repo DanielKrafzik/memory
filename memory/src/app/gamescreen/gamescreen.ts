@@ -6,7 +6,7 @@ interface MemoryCard {
   id: number;
   image: string;
   flipped: boolean;
-  matched: boolean;
+  matched: boolean
 }
 
 type GameTheme = 'code_theme' | 'game_theme';
@@ -18,6 +18,8 @@ type GameTheme = 'code_theme' | 'game_theme';
   styleUrl: './gamescreen.scss',
 })
 export class Gamescreen implements OnInit {
+
+  isBoardLocked = false;
 
   constructor(private gameService: GameService) {}
 
@@ -64,5 +66,46 @@ export class Gamescreen implements OnInit {
         matched: false
       }))
       .sort(() => Math.random() - 0.5);
+  }
+
+  flipCard(card: MemoryCard): void {
+
+    if (
+      this.isBoardLocked ||
+      card.flipped ||
+      card.matched
+    ) {
+      return;
+    }
+
+    card.flipped = true;
+
+    const flippedCards = this.cards.filter(
+      c => c.flipped && !c.matched
+    );
+
+    if (flippedCards.length !== 2) return;
+
+    const [first, second] = flippedCards;
+    this.isBoardLocked = true;
+
+    if (first.image === second.image) {
+
+      first.matched = true;
+      second.matched = true;
+
+      this.isBoardLocked = false;
+
+      return;
+    }
+
+    setTimeout(() => {
+
+      first.flipped = false;
+      second.flipped = false;
+
+      this.isBoardLocked = false;
+
+    }, 1000);
   }
 }

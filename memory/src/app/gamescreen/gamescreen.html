@@ -16,9 +16,34 @@
         </button>
     </div>
 
-    <div class="card" *ngFor="let card of cards">
+    <div class="board">
 
-        <img [src]="'/img/gamescreen/' + card.image" alt="">
+    <div
+        *ngFor="let card of cards"
+        class="card"
+        (click)="flipCard(card)"
+    >
+
+        <div
+        class="card__inner"
+        [class.flipped]="card.flipped"
+        >
+
+        <img
+            src="/img/gamescreen/code_back.png"
+            alt=""
+            class="card__face"
+        >
+
+        <img
+            [src]="'/img/gamescreen/' + card.image"
+            alt=""
+            class="card__face card__face--back"
+        >
+
+        </div>
+
+    </div>
 
     </div>
 </div>
