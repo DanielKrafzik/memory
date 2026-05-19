@@ -1,14 +1,14 @@
 <div class="gamescreen-container">
     <div class="game-bar">
         <div class="game-score">
-            <img src="/img/gamescreen/blue_label.png" alt="">
-            <p>Blue 0</p>
-            <img src="/img/gamescreen/orange_label.png" alt="">
-            <p>Orange 6</p>
+            <img src="/img/gamescreen/Blue_label.png" alt="">
+            <p>Blue {{blueScore}}</p>
+            <img src="/img/gamescreen/Orange_label.png" alt="">
+            <p>Orange {{orangeScore}}</p>
         </div>
         <div class="player-info">
             <p>Current player:</p>
-            <img src="/img/gamescreen/blue_label.png" alt="">
+            <img [src]="'/img/gamescreen/' + currentPlayer + '_label.png'" alt="">
         </div>
         <button class="exit-btn">
             <img src="/img/gamescreen/exit.png" alt="">

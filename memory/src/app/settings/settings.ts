@@ -62,9 +62,6 @@ export class Settings {
     this.gameService.choosenPlayer = this.choosenPlayer;
     this.gameService.boardSize = this.boardSize;
 
-    console.log(this.gameService.gameTheme, this.gameService.choosenPlayer, this.gameService.boardSize);
-    
-
     this.router.navigate(['/gamescreen']);
   }
 }

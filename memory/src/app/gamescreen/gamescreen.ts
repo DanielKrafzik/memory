@@ -24,6 +24,9 @@ export class Gamescreen implements OnInit {
   constructor(private gameService: GameService) {}
 
   cards: MemoryCard[] = [];
+  currentPlayer: string = 'Blue';
+  blueScore: number = 0;
+  orangeScore: number = 0;
 
   gameCards: Record<GameTheme, string[]> = {
     code_theme: [
@@ -44,6 +47,7 @@ export class Gamescreen implements OnInit {
 
   ngOnInit(): void {
     this.createBoard();
+    this.currentPlayer = this.gameService.choosenPlayer ?? 'Blue';
   }
 
   createBoard(): void {
@@ -82,7 +86,7 @@ export class Gamescreen implements OnInit {
 
     const flippedCards = this.cards.filter(
       c => c.flipped && !c.matched
-    );
+    );    
 
     if (flippedCards.length !== 2) return;
 
@@ -94,6 +98,12 @@ export class Gamescreen implements OnInit {
       first.matched = true;
       second.matched = true;
 
+      if(this.currentPlayer === 'Blue') {
+        this.blueScore += 2;
+      } else {
+        this.orangeScore += 2;
+      }
+
       this.isBoardLocked = false;
 
       return;
@@ -103,6 +113,11 @@ export class Gamescreen implements OnInit {
 
       first.flipped = false;
       second.flipped = false;
+
+      this.currentPlayer =
+      this.currentPlayer === 'Blue'
+        ? 'Orange'
+        : 'Blue';
 
       this.isBoardLocked = false;
 
